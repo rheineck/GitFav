@@ -1,0 +1,229 @@
+/* Configurações Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+    --bkg-primary: #161618;
+    --bkg-button: hsla(195, 91%, 25%, 1);
+    --bkg-search: hsla(191, 65%, 7%, 1);
+    --tt-primary: #e1e1e6;
+    --tt-remove: #f75a68;
+    --tt-none: hsla(189, 4%, 32%, 1);
+    --bkg-even: hsla(191, 31%, 42%, .1);
+    --bkg-odd: hsla(195, 61%, 6%, 0.5);
+    --table-header: hsla(194, 72%, 13%, 1);
+    --table-border: hsla(191, 31%, 42%, 1);
+
+    --ff-body: 'Roboto', sans-serif;
+    --ff-none: 'Roboto Mono', sans-serif;
+}
+
+.sr-only {
+    position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
+}
+
+#app {
+    padding: 2rem;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+body * {
+    font-family: var(--ff-body);
+    color: #fff;
+    margin: 0 auto;
+}
+
+body {
+    font-size: 1.6rem;
+    background: var(--bkg-primary);
+}
+
+/* Configurações Cabeçalho */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 115px 0;
+}
+
+header input {
+    border: none;
+    gap: 8px;
+    background: var(--bkg-search);
+    height: 4.8rem;
+    width: 46.2rem;
+    border-radius: 5px;
+    font-family: var(--ff-body);
+    padding: 16px;
+    font-size: 1.6rem;
+}
+
+header button {
+
+    padding: 12px 32px;
+    border: none;
+    border-radius: 5px;
+    height: 4.8rem;
+    width: 17rem;
+    font-family: var(--ff-body);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    text-align: center;
+    margin-left: 8px;
+
+    background: var(--bkg-button);
+    cursor: pointer;
+}
+
+.logo {
+    padding-left: 0;
+    padding-right: 29rem;
+}
+
+.search {
+    display: flex;
+}
+
+.buttonFav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.buttonFav:hover {
+    background: #fff;
+    color: var(--bkg-button);
+}
+
+.buttonFav:hover svg path {
+    fill: var(--bkg-button);
+}
+
+/* Configurações Tabela */
+
+tbody {
+    display: block;
+    max-height: 60rem;
+    overflow: auto;
+    overflow-x: hidden;
+}
+  
+thead,
+tbody tr {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+table * {
+    font-family: var(--ff-body);
+    color: #fff;
+}
+
+table {
+    max-height: 600px;
+    outline: 2px solid var(--table-border);
+    width: 100%;
+    border-radius: 1.2rem;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+table a,
+table button {
+    cursor: pointer;
+}
+
+table thead {
+    background: var(--table-header);
+    height: 6.4rem;
+    position: sticky;
+}
+
+thead th {
+    text-align: left;
+    padding: 16px 0 16px 40px;
+}
+
+table tbody::-webkit-scrollbar {
+    width: 6px;
+    height: 120px;
+}
+
+table tbody::-webkit-scrollbar-thumb {
+    background: #4A808C;
+    border-radius: 10px;
+}
+
+tbody tr {
+    border-bottom: 2px solid var(--table-border);
+}
+
+table tr:nth-child(even) {
+    background: var(--bkg-even);
+}
+
+table tr:nth-child(odd) {
+    background: var(--bkg-odd);
+}
+
+td {
+    height: 100px;
+    font-size: 2rem;
+    line-height: 160%;
+}
+
+td.user {
+    display: flex;
+    align-items: center;
+}
+
+td.user img {
+    border-radius: 50%;
+    width: 5.6rem;
+    height: 5.6rem;
+    margin: 24px 40px;
+}
+
+td.user a {
+    margin: -16px;
+    text-decoration: none;
+}
+
+td.user a p {
+    font-weight: 700;
+}
+
+td.repositores,
+td.followers,
+button.remove {
+    padding: 4rem;
+}
+
+.remove {
+    border: none;
+    background: none;
+    color: var(--tt-remove);
+    font-size: 2rem;
+    line-height: 160%;
+}
+
+.remove:hover {
+    color: #ff0015;
+}
