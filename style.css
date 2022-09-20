@@ -15,6 +15,7 @@
     --tt-none: hsla(189, 4%, 32%, 1);
     --bkg-even: hsla(191, 31%, 42%, .1);
     --bkg-odd: hsla(195, 61%, 6%, 0.5);
+    --bkg-none: #030B0D;
     --table-header: hsla(194, 72%, 13%, 1);
     --table-border: hsla(191, 31%, 42%, 1);
 
@@ -226,4 +227,26 @@ button.remove {
 
 .remove:hover {
     color: #ff0015;
+}
+
+.noFavorites {
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--table-border);
+    border-top: none;
+    border-bottom-left-radius: 1.2rem;
+    border-bottom-right-radius: 1.2rem;
+    background: var(--bkg-none);
+    height: 62.4rem;
+}
+
+.noFavorites svg {
+    margin-left: 192px;
+}
+
+h1 {
+    font-family: var(--ff-none);
+    color: var(--tt-none);
+    font-size: 3.5rem;
+    margin-right: 23.1rem;
 }
