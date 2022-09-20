@@ -249,3 +249,7 @@ h1 {
     font-size: 3.5rem;
     margin-right: 23.1rem;
 }
+
+.hide {
+    display: none;
+}
