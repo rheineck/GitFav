@@ -75,6 +75,7 @@ export class FavoritesView extends Favorites {
     update() {
         this.removeAllTr()
 
+ 
         this.entries.forEach(user => {
             const row = this.createRow()
             row.querySelector('.user img').src = `https://github.com/${user.login}.png`
@@ -84,12 +85,15 @@ export class FavoritesView extends Favorites {
             row.querySelector('.user span').textContent = user.login
             row.querySelector('.repositores').textContent = user.public_repos
             row.querySelector('.followers').textContent = user.followers
+
+            console.log(this.entries)
             
             row.querySelector('.remove').onclick = () => {
                 const isOk = confirm('Tem certeza que deseja deletar essa linha?')
                 if(isOk) {
                     this.delete(user)
                 }
+                this.senzaFavorites()
             }
             
             this.tbody.append(row)
@@ -130,6 +134,11 @@ export class FavoritesView extends Favorites {
                 
     senzaFavorites() {
         const noFavorite = this.root.querySelector('.noFavorites')
-        noFavorite.classList.add('hide')
+        const lengthEntries = this.entries.length
+        if(lengthEntries==0) {
+            noFavorite.classList.remove('hide')
+        } else if(lengthEntries>0) {
+            noFavorite.classList.add('hide')
+        }
     }
 }
