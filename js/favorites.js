@@ -68,9 +68,10 @@ export class FavoritesView extends Favorites {
         addButton.onclick = () => {
             const { value } = this.root.querySelector('.search input')
             this.add(value)
+            this.senzaFavorites()
         }
     }
-
+    
     update() {
         this.removeAllTr()
 
@@ -83,47 +84,52 @@ export class FavoritesView extends Favorites {
             row.querySelector('.user span').textContent = user.login
             row.querySelector('.repositores').textContent = user.public_repos
             row.querySelector('.followers').textContent = user.followers
-
+            
             row.querySelector('.remove').onclick = () => {
                 const isOk = confirm('Tem certeza que deseja deletar essa linha?')
                 if(isOk) {
                     this.delete(user)
                 }
             }
-
+            
             this.tbody.append(row)
         })
-
+        
     }
-
+    
     createRow() {
         const tr = document.createElement('tr')
-
+        
         tr.innerHTML =  `
-            <td class="user">
-                <img src="https://github.com/rheineck.png" alt="Imagem de rheineck">
-                <a href="https://github.com/rheineck" target="_blank">
-                    <p>Raphael Heineck</p>
-                    <span>/rheineck</span>
-                </a>
-            </td>
-            <td class="repositores">
-                6
-            </td>
-            <td class="followers">
-                0
-            </td>
-            <td>
-                <button class="remove">Remover</button>
-            </td>
+        <td class="user">
+        <img src="https://github.com/rheineck.png" alt="Imagem de rheineck">
+        <a href="https://github.com/rheineck" target="_blank">
+        <p>Raphael Heineck</p>
+        <span>/rheineck</span>
+        </a>
+        </td>
+        <td class="repositores">
+        6
+        </td>
+        <td class="followers">
+        0
+        </td>
+        <td>
+        <button class="remove">Remover</button>
+        </td>
         `
         return tr
-    }
+    }    
 
     removeAllTr() {
         this.tbody.querySelectorAll('tr')
-            .forEach((tr) => {
-                tr.remove()
-            })
+        .forEach((tr) => {
+            tr.remove()
+        })
+    }
+                
+    senzaFavorites() {
+        const noFavorite = this.root.querySelector('.noFavorites')
+        noFavorite.classList.add('hide')
     }
 }
